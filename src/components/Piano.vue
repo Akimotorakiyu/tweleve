@@ -1,15 +1,11 @@
 <template>
     <div class="group">
-        <h1>钢琴</h1>
-        <!-- <div>
-                    <button 
-                    :class="{'white': (n%2) == 0, 'black': (n%2) == 1}" 
-                    :key="n" v-for="n in 12" 
-                    :style="{left: 30*n + 'px'}"></button>
-                </div> -->
+        <h1>Rainbow Piano</h1>
+        <h5>Silver Research</h5>
         <div>
             <div>
-                <button :class="{'white': ((n+1)%2) == 0, 'black': (n%2) == 0}" :key="n" v-for="n in 89" :style="{left: position(n)}" @click="play(n-1)"></button>
+                <button :class="{ 'black': (n%2) == 0,'white1': ((n+1)/2)%6==1,'white2': ((n+1)/2)%6==2,'white3': ((n+1)/2)%6==3,'white4': ((n+1)/2)%6==4,'white5': ((n+1)/2)%6==5,'white6': ((n+1)/2)%6==0,}" 
+                :key="n" v-for="n in 89" :style="{left: position(n)}" @click="play(n-1)"></button>
             </div>
         </div>
     </div>
@@ -44,11 +40,20 @@ export default {
 <style scoped>
 button {
   flex: 1;
-  border: 1px solid #7c7c7c;
+  border: 1px solid #fff;
   outline: 0;
   padding: 0;
   margin: 0;
   position: absolute;
+}
+.black:active,
+.black.active {
+  background: #404040;
+}
+.black {
+  width: 20px;
+  background: #333;
+  height: 130px;
 }
 .white:active,
 .white.active {
@@ -60,13 +65,69 @@ button {
   height: 200px;
   z-index: -1;
 }
-.black:active,
-.black.active {
-  background: #404040;
+/* colorfull */
+.white1:active,
+.white1.active {
+  background: #ececec;
 }
-.black {
-  width: 20px;
-  background: #000;
-  height: 130px;
+.white1 {
+  width: 30px;
+  background: #ffcccc;
+  height: 200px;
+  z-index: -1;
 }
+.white2:active,
+.white2.active {
+  background: #ececec;
+}
+.white2 {
+  width: 30px;
+  background: #ffffcc;
+  height: 200px;
+  z-index: -1;
+}
+.white3:active,
+.white3.active {
+  background: #ececec;
+}
+.white3 {
+  width: 30px;
+  background: #ccffcc;
+  height: 200px;
+  z-index: -1;
+}
+.white4:active,
+.white4.active {
+  background: #ececec;
+}
+.white4 {
+  width: 30px;
+  background: #ccffff;
+  height: 200px;
+  z-index: -1;
+}
+.white5:active,
+.white5.active {
+  background: #ececec;
+}
+.white5 {
+  width: 30px;
+  background: #ccccff;
+  height: 200px;
+  z-index: -1;
+}
+.white6:active,
+.white6.active {
+  background: #ececec;
+}
+.white6 {
+  width: 30px;
+  background: #ffccff;
+  height: 200px;
+  z-index: -1;
+}
+
+
+
+
 </style>
